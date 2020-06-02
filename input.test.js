@@ -1,48 +1,92 @@
-const { parse, valid } = require('./input.js');
 
-describe('input functions', () => {
-  it ('can parse command line arguments', () => {
+const Input = require('./input.js');
+
+
+describe('input class', () => {
+  let inputs;
+  beforeEach(() => {
     const commandLineArguments = ['node', 'index.js', '--add', 'I am a note'];
-    const action = parse(commandLineArguments);
 
-    expect(action).toEqual({
-      type: 'add',
-      payload: 'I am a note'
-    });
+    inputs = new Input(commandLineArguments);
   });
 
+  it('has a type and payload property', () => {
 
-  it('can validate command line arguments with add', () => {
+    expect(inputs.type).toEqual('add');
+    expect(inputs.payload).toEqual('I am a note');
+  });
+
+  it('has a valid method', () => {
     const action = {
       type: 'add',
       payload: 'my note'
     };
 
-    const isValid = valid(action);
-
+    const isValid = inputs.valid(action);
     expect(isValid).toBeTruthy();
   });
 
-
-  it('can validate command line arguments with add', () => {
-    const action = {
-      type: 'add',
-      payload: 'my note'
-    };
-
-    const isValid = valid(action);
-
-    expect(isValid).toBeTruthy();
-  });
-
-  it('can validate command line arguments with add', () => {
+  it('has a valid method', () => {
     const action = {
       type: 'badType',
       payload: 'my note'
     };
 
-    const isValid = valid(action);
-
+    const isValid = inputs.valid(action);
     expect(isValid).toBeFalsy();
   });
+
 });
+
+
+
+
+// const { parse, valid } = require('./input.js');
+
+
+// describe('input functions', () => {
+//   it ('can parse command line arguments', () => {
+//     const commandLineArguments = ['node', 'index.js', '--add', 'I am a note'];
+//     const action = parse(commandLineArguments);
+
+//     expect(action).toEqual({
+//       type: 'add',
+//       payload: 'I am a note'
+//     });
+//   });
+
+
+//   it('can validate command line arguments with add', () => {
+//     const action = {
+//       type: 'add',
+//       payload: 'my note'
+//     };
+
+//     const isValid = valid(action);
+
+//     expect(isValid).toBeTruthy();
+//   });
+
+
+//   it('can validate command line arguments with add', () => {
+//     const action = {
+//       type: 'add',
+//       payload: 'my note'
+//     };
+
+//     const isValid = valid(action);
+
+//     expect(isValid).toBeTruthy();
+//   });
+
+//   it('can validate command line arguments with add', () => {
+//     const action = {
+//       type: 'badType',
+//       payload: 'my note'
+//     };
+
+//     const isValid = valid(action);
+
+//     expect(isValid).toBeFalsy();
+//   });
+// });
