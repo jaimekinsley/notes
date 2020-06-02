@@ -18,8 +18,8 @@ class Input {
     this.payload = payload;
   }
 
-  valid(action) {
-    return (action.type === 'add' && action.payload);
+  valid() {
+    return this.type === 'add' && this.payload;
   }
 
 }

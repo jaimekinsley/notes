@@ -17,22 +17,17 @@ describe('input class', () => {
   });
 
   it('has a valid method', () => {
-    const action = {
-      type: 'add',
-      payload: 'my note'
-    };
 
-    const isValid = inputs.valid(action);
+    const isValid = inputs.valid();
     expect(isValid).toBeTruthy();
   });
 
   it('has a valid method', () => {
-    const action = {
-      type: 'badType',
-      payload: 'my note'
-    };
+    const commandLineArguments = ['node', 'index.js', '--badType', 'I am a note'];
 
-    const isValid = inputs.valid(action);
+    const input = new Input(commandLineArguments);
+
+    const isValid = input.valid();
     expect(isValid).toBeFalsy();
   });
 
