@@ -19,6 +19,15 @@ describe ('Notes class', () => {
     expect(note.text).toEqual('I am another note');
   });
 
+  it('has an execute method', () => {
+    const action = { type: 'add', payload: 'I am one more note' };
+
+    const note = Notes.execute(action);
+
+    expect(note.id).toEqual(expect.any(Number));
+    expect(note.text).toEqual('I am one more note');
+  });
+
 });
 
 
