@@ -5,7 +5,9 @@ class Notes {
   }
 
   static add(action){
-    return new Notes(Date.now(), action.payload);
+    const note = new Notes(Date.now(), action.payload);
+    console.log(`Note added: ${note.text}`);
+    return note;
   }
 
   static execute(action){

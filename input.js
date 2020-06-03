@@ -21,9 +21,7 @@ class Input {
   valid() {
     return this.type === 'add' && this.payload;
   }
-
 }
-
 
 module.exports = Input;
 
