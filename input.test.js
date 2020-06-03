@@ -1,5 +1,5 @@
 
-const Input = require('./input.js');
+const Input = require('./Input.js');
 
 
 describe('input class', () => {

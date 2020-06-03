@@ -1,4 +1,4 @@
-const Notes = require('./notes.js');
+const Notes = require('./Notes.js');
 
 describe ('Notes class', () => {
 
