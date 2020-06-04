@@ -11,7 +11,6 @@ class Notes {
   }
 
   static execute(action){
-
     switch(action.type){
       case 'add':
         return this.add(action);
