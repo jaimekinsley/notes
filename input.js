@@ -19,9 +19,23 @@ class Input {
   }
 
   valid() {
-    return this.type === 'add' && this.payload;
+    switch(this.type){
+      case 'add':
+        return this.type === 'add' && this.payload;
+
+      case 'list':
+        return this.type === 'list' && this.payload;
+
+      case 'delete':
+        return this.type === 'delete' && this.payload;
+
+      default:
+        return false;
+    }
+
   }
 }
+
 
 module.exports = Input;
 
